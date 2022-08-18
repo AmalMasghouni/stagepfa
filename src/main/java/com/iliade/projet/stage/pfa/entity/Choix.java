@@ -14,6 +14,10 @@ public class Choix implements Serializable {
     private Long id_choix;
     @Column
     private String choix;
+    @ManyToOne@JoinColumn(name = "id_reponse")
+    private Reponse reponse;
+    @ManyToOne@JoinColumn(name = "id_correction")
+    private Correction correction;
 
 
 
@@ -35,8 +39,22 @@ public class Choix implements Serializable {
         this.choix = choix;
     }
 
+    public Reponse getReponse() {
+        return reponse;
+    }
 
-    //Constructor
+    public void setReponse(Reponse reponse) {
+        this.reponse = reponse;
+    }
+
+    public Correction getCorrection() {
+        return correction;
+    }
+
+    public void setCorrection(Correction correction) {
+        this.correction = correction;
+    }
+//Constructor
 
     public Choix(Long id_choix, String choix) {
         this.id_choix = id_choix;

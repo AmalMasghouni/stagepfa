@@ -19,6 +19,12 @@ public class Question implements Serializable {
     private String question;
     @Column
     private Float note_question;
+    @ManyToOne@JoinColumn(name = "id_exercice")
+    private Exercice exercice;
+    @ManyToOne@JoinColumn(name ="id_correction")
+    private Correction correction;
+    @ManyToOne@JoinColumn(name = "id_reponse")
+    private Reponse reponse;
 
 
 
@@ -56,8 +62,30 @@ public class Question implements Serializable {
         this.note_question = note_question;
     }
 
+    public Exercice getExercice() {
+        return exercice;
+    }
 
-    //Constructor
+    public void setExercice(Exercice exercice) {
+        this.exercice = exercice;
+    }
+
+    public Correction getCorrection() {
+        return correction;
+    }
+
+    public void setCorrection(Correction correction) {
+        this.correction = correction;
+    }
+
+    public Reponse getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(Reponse reponse) {
+        this.reponse = reponse;
+    }
+//Constructor
 
     public Question(Long id_question, Type_question type_question, String question, Float note_question) {
         this.id_question = id_question;

@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Data
@@ -18,6 +21,14 @@ public class Test implements Serializable {
     private Boolean statut_test;
     @Column
     private Float note_test;
+    @Column
+    private Resultat resultat_test;
+    @ManyToOne
+    private Poste poste;
+    @OneToMany(mappedBy = "test")
+    private List<Exercice> exercice;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Collection<Candidat> candidats=new ArrayList<>();
 
 
     //Getter and Setter
@@ -51,15 +62,47 @@ public class Test implements Serializable {
     }
 
     public void setType_test(Test_type type_test) {
-        this.type_test = type_test;
+        this.type_test = type_test;}
+
+    public Resultat getResultat_test() {
+        return resultat_test;
+    }
+
+    public void setResultat_test(Resultat resultat_test) {
+        this.resultat_test = resultat_test;
+    }
+
+    public Poste getPoste() {
+        return poste;
+    }
+
+    public void setPoste(Poste poste) {
+        this.poste = poste;
+    }
+
+    public List<Exercice> getExercice() {
+        return exercice;
+    }
+
+    public void setExercice(List<Exercice> exercice) {
+        this.exercice = exercice;
+    }
+
+    public Collection<Candidat> getCandidats() {
+        return candidats;
+    }
+
+    public void setCandidats(Collection<Candidat> candidats) {
+        this.candidats = candidats;
     }
     //Constructor
 
-    public Test(Long id_test, Test_type type_test, Boolean statut_test, Float note_test) {
+    public Test(Long id_test, Test_type type_test, Boolean statut_test, Float note_test, Resultat resultat_test) {
         this.id_test = id_test;
         this.type_test = type_test;
         this.statut_test = statut_test;
         this.note_test = note_test;
+        this.resultat_test = resultat_test;
     }
 
 
@@ -73,6 +116,7 @@ public class Test implements Serializable {
                 ", type_test=" + type_test +
                 ", statut_test=" + statut_test +
                 ", note_test=" + note_test +
+                ", resultat_test=" + resultat_test +
                 '}';
     }
 }

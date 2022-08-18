@@ -4,6 +4,10 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "Candidat")
@@ -26,7 +30,12 @@ public class Candidat implements Serializable {
     private String specialite;
     @Column
     private String niveau;
-
+    @OneToMany(mappedBy = "candidat")
+    private List<Poste> poste ;
+    @ManyToOne @JoinColumn(name = "id_utilisateur")
+    private Utilisateur utilisateur;
+    @ManyToMany(mappedBy = "candidats")
+    private Collection<Test> tests=new ArrayList<>();
 
     //Getter and Setter
 
@@ -94,8 +103,30 @@ public class Candidat implements Serializable {
         this.niveau = niveau;
     }
 
+    public List<Poste> getPoste() {
+        return poste;
+    }
 
-    //Constructor
+    public void setPoste(List<Poste> poste) {
+        this.poste = poste;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
+
+    public Collection<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Collection<Test> tests) {
+        this.tests = tests;
+    }
+//Constructor
 
     public Candidat(Long id_candidat, String nom, String prenom, String nationnalite, String ecole, String diplome, String specialite, String niveau) {
         this.id_candidat = id_candidat;

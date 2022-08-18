@@ -5,6 +5,7 @@ import net.bytebuddy.dynamic.loading.InjectionClassLoader;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,6 +18,10 @@ public class Exercice implements Serializable {
     private String type_exercice;
     @Column
     private Float note_exercice;
+    @ManyToOne@JoinColumn(name = "id_test")
+    private Test test;
+    @OneToMany(mappedBy = "exercice")
+    private List<Question> question;
 
 
 
@@ -47,8 +52,22 @@ public class Exercice implements Serializable {
         this.note_exercice = note_exercice;
     }
 
+    public Test getTest() {
+        return test;
+    }
 
-    // Constructor
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    public List<Question> getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(List<Question> question) {
+        this.question = question;
+    }
+// Constructor
 
     public Exercice(Long id_exercice, String type_exercice, Float note_exercice) {
         this.id_exercice = id_exercice;

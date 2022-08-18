@@ -4,6 +4,8 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
+
 @Entity
 @Data
 @Table(name = "Administrateur")
@@ -15,6 +17,11 @@ public class Administrateur implements Serializable {
     private String nom_commercial;
     @Column
     private String nom_responsable;
+    @OneToMany(mappedBy = "administrateur")
+    private List<Poste> poste;
+    @OneToOne@JoinColumn(name = "id_utilisateur")
+    private Utilisateur utilisateur;
+
 
 
     //Getter and Setter
@@ -43,8 +50,21 @@ public class Administrateur implements Serializable {
         this.nom_responsable = nom_responsable;
     }
 
+    public List<Poste> getPoste() {
+        return poste;
+    }
 
+    public void setPoste(List<Poste> poste) {
+        this.poste = poste;
+    }
 
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
+    }
     // Constructor
 
     public Administrateur(Long id_admin, String nom_commercial, String nom_responsable) {
