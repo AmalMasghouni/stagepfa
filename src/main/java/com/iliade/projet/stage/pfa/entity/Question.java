@@ -1,13 +1,16 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
 @Table(name = "Question")
+@NoArgsConstructor
+
 public class Question implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,6 +28,7 @@ public class Question implements Serializable {
     private Correction correction;
     @ManyToOne@JoinColumn(name = "id_reponse")
     private Reponse reponse;
+
 
 
 

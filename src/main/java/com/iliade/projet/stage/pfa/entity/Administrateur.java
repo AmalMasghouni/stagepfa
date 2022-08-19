@@ -1,14 +1,16 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Administrateur")
+@NoArgsConstructor
 public class Administrateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +23,7 @@ public class Administrateur implements Serializable {
     private List<Poste> poste;
     @OneToOne@JoinColumn(name = "id_utilisateur")
     private Utilisateur utilisateur;
+
 
 
 

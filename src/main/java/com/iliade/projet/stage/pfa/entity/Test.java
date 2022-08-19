@@ -1,6 +1,7 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,8 +10,9 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Test")
+@NoArgsConstructor
 public class Test implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +31,8 @@ public class Test implements Serializable {
     private List<Exercice> exercice;
     @ManyToMany(fetch = FetchType.EAGER)
     private Collection<Candidat> candidats=new ArrayList<>();
+
+
 
 
     //Getter and Setter
