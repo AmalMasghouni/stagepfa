@@ -1,6 +1,7 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -9,8 +10,9 @@ import java.util.Collection;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Candidat")
+@NoArgsConstructor
 
 public class Candidat implements Serializable {
     @Id
@@ -36,6 +38,7 @@ public class Candidat implements Serializable {
     private Utilisateur utilisateur;
     @ManyToMany(mappedBy = "candidats")
     private Collection<Test> tests=new ArrayList<>();
+
 
     //Getter and Setter
 

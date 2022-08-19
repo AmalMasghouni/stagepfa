@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Utilisateur")
 public class Utilisateur implements Serializable {
     @Id
@@ -32,9 +32,8 @@ public class Utilisateur implements Serializable {
   @OneToOne(mappedBy = "utilisateur")
   private Administrateur administrateur;
 
-
-
-
+    public Utilisateur() {
+    }
 
 
     // Getter and Setter
@@ -121,7 +120,7 @@ public class Utilisateur implements Serializable {
     //Constructor
 
 
-    public Utilisateur(Long id, String login, String mot_de_passe, String email, String phone, String pays, String adresse, Utilisateur_type type_utilisateur) {
+    public Utilisateur (Long id, String login, String mot_de_passe, String email, String phone, String pays, String adresse, Utilisateur_type type_utilisateur) {
         this.id = id;
         this.login = login;
         this.mot_de_passe = mot_de_passe;

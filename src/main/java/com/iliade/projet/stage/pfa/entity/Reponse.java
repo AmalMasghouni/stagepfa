@@ -1,14 +1,16 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Reponse")
+@NoArgsConstructor
 public class Reponse implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +19,8 @@ public class Reponse implements Serializable {
     private List<Question> question;
     @OneToMany(mappedBy = "reponse")
     private List<Choix> choix;
+
+
 
 
     //Getter and Setter

@@ -1,15 +1,17 @@
 package com.iliade.projet.stage.pfa.entity;
 
+
 import lombok.Data;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Data
+
 @Table(name = "Exercice")
+@NoArgsConstructor
 public class Exercice implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -69,7 +71,8 @@ public class Exercice implements Serializable {
     }
 // Constructor
 
-    public Exercice(Long id_exercice, String type_exercice, Float note_exercice) {
+   public Exercice(Long id_exercice, String type_exercice, Float note_exercice) {
+
         this.id_exercice = id_exercice;
         this.type_exercice = type_exercice;
         this.note_exercice = note_exercice;

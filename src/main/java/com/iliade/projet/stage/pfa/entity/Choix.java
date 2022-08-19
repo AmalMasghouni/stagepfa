@@ -1,13 +1,15 @@
 package com.iliade.projet.stage.pfa.entity;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Data
+
 @Table(name = "Choix")
+@NoArgsConstructor
 public class Choix implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
