@@ -5,9 +5,9 @@ import com.iliade.projet.stage.pfa.entity.Test;
 import java.util.List;
 
 public interface TestService {
-   Test ajouter(Test test );
+   Test ajouterTest(Test test );
     void deleteTest(Test test);
-    void deleteById(Long id);
-     Test updateTest (Test test, Long id);
+    void deleteTestById(Long id);
+     Test updateTest (Test test);
     List<Test> getAllTest();
 }

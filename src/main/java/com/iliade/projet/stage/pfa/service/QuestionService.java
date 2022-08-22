@@ -6,9 +6,9 @@ import com.iliade.projet.stage.pfa.entity.Question;
 import java.util.List;
 
 public interface QuestionService {
-    Question ajouter(Question question);
+    Question ajouterQuestion(Question question);
     void deleteQuestion(Question question);
     void deleteQuestionById(Long id);
-    Question updateQuestion (Question question, Long id);
+    Question updateQuestion (Question question);
     List<Question> getAllQuestion();
 }

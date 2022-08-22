@@ -12,7 +12,7 @@ public class UtilisateurServiceImp implements UtilisateurService {
     @Autowired
     UtilisateurRepository utilisateurRepository;
     @Override
-    public Utilisateur ajouter(Utilisateur utilisateur) {
+    public Utilisateur ajouterUtilisateur(Utilisateur utilisateur) {
         utilisateurRepository.save(utilisateur);
         return utilisateur;
 
@@ -31,16 +31,8 @@ public class UtilisateurServiceImp implements UtilisateurService {
     }
 
    @Override
-   public Utilisateur updateUtilisateur(Utilisateur utilisateur, Long id) {
-        /*Utilisateur utilisateur = utilisateurRepository.findById(id).get()
-
-
-        utilisateur.setId(employeeDetails.getEmailId());
-        utilisateur.s(employeeDetails.getLastName());
-        utilisateur.setFirstName(employeeDetails.getFirstName());
-        final Utilisateur updatedUtilisateur = utilisateurRepository.save(utilisateur);
-        return updatedUtilisateur;*/
-       return null;
+   public Utilisateur updateUtilisateur(Utilisateur utilisateur) {
+       return utilisateurRepository.save(utilisateur);
     }
 
     @Override

@@ -13,7 +13,7 @@ public class CorrectionServiceImp  implements CorrectionService{
     @Autowired
     CorrectionRepository correctionRepository;
     @Override
-    public Correction ajouter(Correction correction) {
+    public Correction ajouterCorrection(Correction correction) {
         correctionRepository.save(correction);
         return correction;
     }
@@ -29,8 +29,8 @@ public class CorrectionServiceImp  implements CorrectionService{
     }
 
     @Override
-    public Correction updateCorrection(Correction Correction, Long id) {
-        return null;
+    public Correction updateCorrection(Correction correction) {
+        return correctionRepository.save(correction);
     }
 
     @Override

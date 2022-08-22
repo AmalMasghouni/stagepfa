@@ -12,7 +12,7 @@ public class QuestionServiceImp implements QuestionService {
     @Autowired
     QuestionRespository questionRespository;
     @Override
-    public Question ajouter(Question question) {
+    public Question ajouterQuestion(Question question) {
         questionRespository.save(question);
         return question;
     }
@@ -28,8 +28,8 @@ public class QuestionServiceImp implements QuestionService {
     }
 
     @Override
-    public Question updateQuestion(Question question, Long id) {
-        return null;
+    public Question updateQuestion(Question question) {
+        return questionRespository.save(question);
     }
 
     @Override

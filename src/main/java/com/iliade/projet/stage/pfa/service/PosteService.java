@@ -6,9 +6,9 @@ import com.iliade.projet.stage.pfa.entity.Poste;
 import java.util.List;
 
 public interface PosteService {
-    Poste ajouter(Poste poste);
+    Poste ajouterPoste(Poste poste);
     void deletePoste(Poste poste);
     void deletePosteById(Long id);
-   Poste updatePoste (Poste poste, Long id);
+   Poste updatePoste (Poste poste);
     List<Poste> getAllPoste();
 }

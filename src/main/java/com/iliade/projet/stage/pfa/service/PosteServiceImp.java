@@ -12,7 +12,7 @@ public class PosteServiceImp implements PosteService {
     @Autowired
     PosteRepository posteRepository;
     @Override
-    public Poste ajouter(Poste poste) {
+    public Poste ajouterPoste(Poste poste) {
         posteRepository.save(poste);
         return poste;
     }
@@ -30,8 +30,8 @@ public class PosteServiceImp implements PosteService {
     }
 
     @Override
-    public Poste updatePoste(Poste poste, Long id) {
-        return null;
+    public Poste updatePoste(Poste poste) {
+        return posteRepository.save(poste);
     }
 
     @Override

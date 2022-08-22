@@ -7,9 +7,9 @@ import com.iliade.projet.stage.pfa.repositry.CorrectionRepository;
 import java.util.List;
 
 public interface CorrectionService {
-   Correction ajouter(Correction correction);
+   Correction ajouterCorrection(Correction correction);
     void deleteCorrection(Correction correction);
     void deleteCorrectionById(Long id);
-    Correction updateCorrection (Correction Correction, Long id);
+    Correction updateCorrection (Correction correction);
     List<Correction> getAllCorrection ();
 }

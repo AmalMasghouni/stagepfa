@@ -28,8 +28,8 @@ public class AdministrateurServiceImp implements AdministrateurService {
     }
 
     @Override
-    public Administrateur updateAdministrateur(Administrateur administrateur, Long id) {
-        return null;
+    public Administrateur updateAdministrateur(Administrateur administrateur) {
+        return administrateurRepository.save(administrateur);
     }
 
     @Override

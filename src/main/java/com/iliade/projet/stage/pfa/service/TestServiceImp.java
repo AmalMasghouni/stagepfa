@@ -14,7 +14,7 @@ public class TestServiceImp implements TestService {
     TestRepository testRepository;
 
     @Override
-    public Test ajouter(Test test) {
+    public Test ajouterTest(Test test) {
         testRepository.save(test);
         return test;
     }
@@ -26,13 +26,13 @@ public class TestServiceImp implements TestService {
     }
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteTestById(Long id) {
         testRepository.deleteById(id);
     }
 
     @Override
-    public Test updateTest(Test test, Long id) {
-        return null;
+    public Test updateTest(Test test) {
+        return testRepository.save(test);
     }
 
     @Override

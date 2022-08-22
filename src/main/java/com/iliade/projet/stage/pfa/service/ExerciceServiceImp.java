@@ -12,7 +12,7 @@ public class ExerciceServiceImp implements  ExerciceService {
     @Autowired
     ExerciceRepository exerciceRepository;
     @Override
-    public Exercice ajouter(Exercice exercice) {
+    public Exercice ajouterExercice(Exercice exercice) {
         exerciceRepository.save(exercice);
         return exercice;
     }
@@ -28,8 +28,8 @@ public class ExerciceServiceImp implements  ExerciceService {
     }
 
     @Override
-    public Exercice updateExercice(Exercice exercice, Long id) {
-        return null;
+    public Exercice updateExercice(Exercice exercice) {
+        return exerciceRepository.save(exercice);
     }
 
     @Override

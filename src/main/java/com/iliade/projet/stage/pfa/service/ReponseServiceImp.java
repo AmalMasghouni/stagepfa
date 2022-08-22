@@ -12,7 +12,7 @@ public class ReponseServiceImp implements ReponseService {
     @Autowired
     ReponseRepository reponseRepository;
     @Override
-    public Reponse ajouter(Reponse reponse) {
+    public Reponse ajouterReponse(Reponse reponse) {
         reponseRepository.save(reponse);
         return reponse;
     }
@@ -28,8 +28,8 @@ public class ReponseServiceImp implements ReponseService {
     }
 
     @Override
-    public Reponse updateReponse(Reponse reponse, Long id) {
-        return null;
+    public Reponse updateReponse(Reponse reponse) {
+        return reponseRepository.save(reponse);
     }
 
     @Override

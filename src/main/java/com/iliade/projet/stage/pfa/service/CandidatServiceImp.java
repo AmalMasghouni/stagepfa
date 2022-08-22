@@ -29,8 +29,8 @@ public class CandidatServiceImp implements  CandidatService{
     }
 
     @Override
-    public Candidat updateCandidat(Candidat candidat, Long id) {
-        return null;
+    public Candidat updateCandidat(Candidat candidat) {
+       return candidatRepositor.save(candidat);
     }
 
     @Override

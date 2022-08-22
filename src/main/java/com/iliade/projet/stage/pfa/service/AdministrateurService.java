@@ -8,6 +8,6 @@ public interface AdministrateurService {
     Administrateur ajouterAdministrateur(Administrateur administrateur);
     void deleteAdministrateur(Administrateur administrateur);
     void deleteAdministrateurById(Long id);
-   Administrateur updateAdministrateur (Administrateur administrateur,Long id);
+   Administrateur updateAdministrateur (Administrateur administrateur);
     List<Administrateur> getAllAdministrateur();
 }
