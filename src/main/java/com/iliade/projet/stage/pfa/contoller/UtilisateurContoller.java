@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("utilisateur")
 public class UtilisateurContoller {
     @Autowired
     UtilisateurService utilisateurService;
     //Afficher les utilisateurs;
-    @GetMapping("/utilisateur")
+    @GetMapping("/listutilisateur")
     @ResponseBody
 
     public List<Utilisateur> getAllUtilisateur()
@@ -36,10 +37,10 @@ public class UtilisateurContoller {
     }
 
     //Update utilisateur
-    @PutMapping("/updateutilisateur")
+    @PutMapping("/updateutilisateur/{id}")
     @ResponseBody
-    public Utilisateur updateUtilisateur(@RequestBody Utilisateur utilisateur) {
-        return utilisateurService.updateUtilisateur(utilisateur);
+    public Utilisateur updateUtilisateur(@RequestBody Utilisateur utilisateur,@PathVariable ("id") Long id) {
+        return utilisateurService.updateUtilisateur(utilisateur,id);
     }
 
 }

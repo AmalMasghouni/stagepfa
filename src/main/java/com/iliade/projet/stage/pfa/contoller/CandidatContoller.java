@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("candidat")
 public class CandidatContoller {
     @Autowired
     CandidatService candidatService;
     //Afficher les candidats;
-    @GetMapping("/candidat")
+    @GetMapping("/listcandidat")
     @ResponseBody
 
     public List<Candidat> getAllCandidat()
@@ -36,10 +37,10 @@ public class CandidatContoller {
     }
 
     //Update candidat
-    @PutMapping("/updatecandidt")
+    @PutMapping("/updatecandidt/{id}")
     @ResponseBody
-    public Candidat updateCandidat(@RequestBody Candidat candidat) {
-        return candidatService.updateCandidat(candidat);
+    public Candidat updateCandidat(@RequestBody Candidat candidat , @PathVariable ("id") Long id) {
+        return candidatService.updateCandidat(candidat,id);
     }
 
 

@@ -1,5 +1,6 @@
 package com.iliade.projet.stage.pfa.service;
 
+import com.iliade.projet.stage.pfa.entity.Choix;
 import com.iliade.projet.stage.pfa.entity.Reponse;
 import com.iliade.projet.stage.pfa.repositry.ReponseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,12 @@ public class ReponseServiceImp implements ReponseService {
     }
 
     @Override
-    public Reponse updateReponse(Reponse reponse) {
-        return reponseRepository.save(reponse);
+    public Reponse updateReponse(Reponse reponse,Long id) {
+        Reponse r= reponseRepository.findById(id).get();
+        r.setChoix(reponse.getChoix());
+        r.setQuestion(reponse.getQuestion());
+        return reponseRepository.save(r);
+
     }
 
     @Override

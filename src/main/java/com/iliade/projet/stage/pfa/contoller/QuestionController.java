@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("question")
 public class QuestionController {
     @Autowired
     QuestionService questionService;
     //Afficher les questions;
-    @GetMapping("/question")
+    @GetMapping("/listquestion")
     @ResponseBody
 
     public List<Question> getAllquestion()
@@ -36,10 +37,10 @@ public class QuestionController {
     }
 
     //Update question
-    @PutMapping("/updatequestion")
+    @PutMapping("/updatequestion/{id}")
     @ResponseBody
-    public Question updateQuestion(@RequestBody Question question) {
-        return questionService.updateQuestion(question);
+    public Question updateQuestion(@RequestBody Question question,@PathVariable ("id") Long id) {
+        return questionService.updateQuestion(question,id);
     }
 
 }

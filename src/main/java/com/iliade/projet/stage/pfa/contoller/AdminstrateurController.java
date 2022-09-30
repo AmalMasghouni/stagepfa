@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("admi")
+@RequestMapping("administrateur")
 public class AdminstrateurController {
+
     @Autowired
     AdministrateurService administrateurService;
     //Afficher les admins;
-   @GetMapping("/administrateur")
+   @GetMapping("/listadministrateur")
     @ResponseBody
-
    public List<Administrateur> getAllAdministrateur()
    {    List<Administrateur> list;
        list = (List<Administrateur>) administrateurService.getAllAdministrateur();
@@ -36,10 +36,10 @@ public class AdminstrateurController {
     }
 
     //Update admin
-    @PutMapping("/updateadministrateur")
+    @PutMapping("/updateadministrateur/{id}")
     @ResponseBody
-    public Administrateur updateAdministrateur(@RequestBody Administrateur administrateur) {
-        return administrateurService.updateAdministrateur(administrateur);
+    public Administrateur updateAdministrateur(@RequestBody Administrateur administrateur, @PathVariable ("id") Long id) {
+        return administrateurService.updateAdministrateur(administrateur,id);
     }
 
 

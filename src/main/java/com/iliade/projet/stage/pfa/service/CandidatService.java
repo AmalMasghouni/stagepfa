@@ -9,6 +9,6 @@ public interface CandidatService {
    Candidat ajouterCandidat(Candidat candidat);
     void deleteCandidat(Candidat candidat);
     void deleteCandidatById(Long id);
-    Candidat updateCandidat (Candidat candidat);
+    Candidat updateCandidat (Candidat candidat, Long id);
     List<Candidat> getAllCandidat();
 }

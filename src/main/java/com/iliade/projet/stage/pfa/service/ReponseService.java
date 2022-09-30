@@ -9,6 +9,6 @@ public interface ReponseService {
    Reponse ajouterReponse(Reponse reponse);
     void deleteReponse(Reponse reponse);
     void deleteReponseById(Long id);
-    Reponse updateReponse (Reponse reponse);
+    Reponse updateReponse (Reponse reponse,Long id);
     List<Reponse> getAllReponse();
 }

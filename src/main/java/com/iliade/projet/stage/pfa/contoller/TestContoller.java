@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("test")
 public class TestContoller {
     @Autowired
     TestService testService;
     //Afficher les tests;
-    @GetMapping("/test")
+    @GetMapping("/listtest")
     @ResponseBody
 
     public List<Test> getAllTest()
@@ -36,10 +37,10 @@ public class TestContoller {
     }
 
     //Update test
-    @PutMapping("/updatetest")
+    @PutMapping("/updatetest/{id}")
     @ResponseBody
-    public Test updateTest(@RequestBody Test test) {
-        return testService.updateTest(test);
+    public Test updateTest(@RequestBody Test test,@PathVariable ("id") Long id) {
+        return testService.updateTest(test,id);
     }
 
 }

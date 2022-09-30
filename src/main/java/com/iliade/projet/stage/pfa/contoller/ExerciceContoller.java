@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("exercice")
 public class ExerciceContoller {
     @Autowired
     ExerciceService exerciceService;
     //Afficher les exericices;
-    @GetMapping("/exercice")
+    @GetMapping("/listexercice")
     @ResponseBody
 
     public List<Exercice> getAllExercice()
@@ -36,10 +37,10 @@ public class ExerciceContoller {
     }
 
     //Update exercice
-    @PutMapping("/updateexercice")
+    @PutMapping("/updateexercice/{id}")
     @ResponseBody
-    public Exercice updateExercice(@RequestBody Exercice exercice) {
-        return exerciceService.updateExercice(exercice);
+    public Exercice updateExercice(@RequestBody Exercice exercice,@PathVariable ("id") Long id) {
+        return exerciceService.updateExercice(exercice,id);
     }
 
 

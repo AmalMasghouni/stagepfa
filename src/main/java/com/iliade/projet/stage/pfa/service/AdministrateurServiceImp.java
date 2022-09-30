@@ -1,6 +1,7 @@
 package com.iliade.projet.stage.pfa.service;
 
 import com.iliade.projet.stage.pfa.entity.Administrateur;
+import com.iliade.projet.stage.pfa.entity.Choix;
 import com.iliade.projet.stage.pfa.repositry.AdministrateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +29,14 @@ public class AdministrateurServiceImp implements AdministrateurService {
     }
 
     @Override
-    public Administrateur updateAdministrateur(Administrateur administrateur) {
-        return administrateurRepository.save(administrateur);
+    public Administrateur updateAdministrateur(Administrateur administrateur , Long id) {
+        Administrateur admin= administrateurRepository.findById(id).get();
+        admin.setNom_commercial(administrateur.getNom_commercial());
+        admin.setNom_responsable(administrateur.getNom_responsable());
+        admin.setPoste(administrateur.getPoste());
+        admin.setUtilisateur(administrateur.getUtilisateur());
+        return administrateurRepository.save(admin);
+
     }
 
     @Override

@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("ch")
+@RequestMapping("choix")
 public class ChoixController {
     @Autowired
     ChoixService choixService;
     //Afficher les choix;
-    @GetMapping("/choix")
+    @GetMapping("/listchoix")
     @ResponseBody
     public List<Choix> getAllChoix()
     {    List<Choix> list;

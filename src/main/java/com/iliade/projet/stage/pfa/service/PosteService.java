@@ -9,6 +9,6 @@ public interface PosteService {
     Poste ajouterPoste(Poste poste);
     void deletePoste(Poste poste);
     void deletePosteById(Long id);
-   Poste updatePoste (Poste poste);
+   Poste updatePoste (Poste poste,Long id);
     List<Poste> getAllPoste();
 }

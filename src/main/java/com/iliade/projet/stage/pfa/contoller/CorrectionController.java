@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("correction")
 public class CorrectionController {
     @Autowired
     CorrectionService correctionService;
     //Afficher les corrections;
-    @GetMapping("/correction")
+    @GetMapping("/listcorrection")
     @ResponseBody
 
     public List<Correction> getAllCorrection()
@@ -37,10 +38,11 @@ public class CorrectionController {
     }
 
     //Update correction
-    @PutMapping("/updatecorrection")
+    @PutMapping("/updatecorrection/{id}")
     @ResponseBody
-    public Correction updateCorrection(@RequestBody Correction correction) {
-        return correctionService.updateCorrection(correction);
+    public Correction updateCorrection(@RequestBody Correction correction,@PathVariable ("id") Long id) {
+        return correctionService.updateCorrection(correction,id);
+
     }
 
 

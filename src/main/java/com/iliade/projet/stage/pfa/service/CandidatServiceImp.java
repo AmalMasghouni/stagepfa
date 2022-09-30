@@ -1,5 +1,6 @@
 package com.iliade.projet.stage.pfa.service;
 
+import com.iliade.projet.stage.pfa.entity.Administrateur;
 import com.iliade.projet.stage.pfa.entity.Candidat;
 import com.iliade.projet.stage.pfa.repositry.CandidatRepositor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,20 @@ public class CandidatServiceImp implements  CandidatService{
     }
 
     @Override
-    public Candidat updateCandidat(Candidat candidat) {
-       return candidatRepositor.save(candidat);
+    public Candidat updateCandidat(Candidat candidat, Long id) {
+        Candidat c= candidatRepositor.findById(id).get();
+        c.setNom(candidat.getNom());
+        c.setPrenom(candidat.getPrenom());
+        c.setNationnalite(candidat.getNationnalite());
+        c.setEcole(candidat.getEcole());
+        c.setDiplome(candidat.getDiplome());
+        c.setSpecialite(candidat.getSpecialite());
+        c.setNiveau(candidat.getNiveau());
+        c.setUtilisateur(candidat.getUtilisateur());
+        c.setPoste(candidat.getPoste());
+        c.setTests(candidat.getTests());
+
+        return candidatRepositor.save(candidat);
     }
 
     @Override

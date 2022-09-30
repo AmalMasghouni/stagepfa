@@ -10,6 +10,6 @@ public interface CorrectionService {
    Correction ajouterCorrection(Correction correction);
     void deleteCorrection(Correction correction);
     void deleteCorrectionById(Long id);
-    Correction updateCorrection (Correction correction);
+    Correction updateCorrection (Correction correction , Long id);
     List<Correction> getAllCorrection ();
 }

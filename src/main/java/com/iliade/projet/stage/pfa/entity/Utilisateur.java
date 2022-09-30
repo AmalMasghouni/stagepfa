@@ -8,7 +8,11 @@ import java.util.List;
 
 @Entity
 
-@Table(name = "Utilisateur")
+@Table(name = "Utilisateur",uniqueConstraints = {
+        @UniqueConstraint(columnNames = "login"),
+        @UniqueConstraint(columnNames = "email")
+}
+)
 public class Utilisateur implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

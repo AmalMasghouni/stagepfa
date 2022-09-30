@@ -1,5 +1,6 @@
 package com.iliade.projet.stage.pfa.service;
 
+import com.iliade.projet.stage.pfa.entity.Choix;
 import com.iliade.projet.stage.pfa.entity.Exercice;
 import com.iliade.projet.stage.pfa.repositry.ExerciceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,8 +29,14 @@ public class ExerciceServiceImp implements  ExerciceService {
     }
 
     @Override
-    public Exercice updateExercice(Exercice exercice) {
-        return exerciceRepository.save(exercice);
+    public Exercice updateExercice(Exercice exercice,Long id) {
+        Exercice ex= exerciceRepository.findById(id).get();
+        ex.setType_exercice(exercice.getType_exercice());
+        ex.setNote_exercice(exercice.getNote_exercice());
+        ex.setTest(exercice.getTest());
+        ex.setQuestion(exercice.getQuestion());
+        return exerciceRepository.save(ex);
+
     }
 
     @Override

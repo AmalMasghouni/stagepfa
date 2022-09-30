@@ -9,6 +9,6 @@ public interface QuestionService {
     Question ajouterQuestion(Question question);
     void deleteQuestion(Question question);
     void deleteQuestionById(Long id);
-    Question updateQuestion (Question question);
+    Question updateQuestion (Question question,Long id);
     List<Question> getAllQuestion();
 }

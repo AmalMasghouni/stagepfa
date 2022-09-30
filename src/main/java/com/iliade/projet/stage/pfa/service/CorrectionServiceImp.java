@@ -29,8 +29,12 @@ public class CorrectionServiceImp  implements CorrectionService{
     }
 
     @Override
-    public Correction updateCorrection(Correction correction) {
-        return correctionRepository.save(correction);
+    public Correction updateCorrection(Correction correction , Long id) {
+        Correction corr= correctionRepository.findById(id).get();
+        corr.setQuestion(correction.getQuestion());
+        corr.setChoix(correction.getChoix());
+
+        return correctionRepository.save(corr);
     }
 
     @Override

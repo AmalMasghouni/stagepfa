@@ -10,11 +10,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("poste")
 public class PosteController {
     @Autowired
     PosteService posteService;
     //Afficher les postes;
-    @GetMapping("/poste")
+    @GetMapping("/listposte")
     @ResponseBody
 
     public List<Poste> getAllPoste()
@@ -37,10 +38,10 @@ public class PosteController {
     }
 
     //Update poste
-    @PutMapping("/updateposte")
+    @PutMapping("/updateposte/{id}")
     @ResponseBody
-    public Poste updatePoste(@RequestBody Poste poste) {
-        return posteService.updatePoste(poste);
+    public Poste updatePoste(@RequestBody Poste poste,@PathVariable ("id") Long id) {
+        return posteService.updatePoste(poste,id);
     }
 
 }

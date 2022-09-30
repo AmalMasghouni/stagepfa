@@ -8,6 +8,6 @@ public interface UtilisateurService {
    Utilisateur ajouterUtilisateur(Utilisateur utilisateur);
     void deleteUtilisateur(Utilisateur utilisateur);
     void deleteUtilisateurById(Long id);
-    Utilisateur updateUtilisateur(Utilisateur utilisateur);
+    Utilisateur updateUtilisateur(Utilisateur utilisateur,Long id);
     List<Utilisateur> getAllUtilisateur();
 }

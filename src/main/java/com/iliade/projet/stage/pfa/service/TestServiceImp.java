@@ -1,5 +1,6 @@
 package com.iliade.projet.stage.pfa.service;
 
+import com.iliade.projet.stage.pfa.entity.Choix;
 import com.iliade.projet.stage.pfa.entity.Test;
 import com.iliade.projet.stage.pfa.entity.Utilisateur;
 import com.iliade.projet.stage.pfa.repositry.TestRepository;
@@ -31,8 +32,17 @@ public class TestServiceImp implements TestService {
     }
 
     @Override
-    public Test updateTest(Test test) {
-        return testRepository.save(test);
+    public Test updateTest(Test test,Long id) {
+        Test t= testRepository.findById(id).get();
+        t.setType_test(test.getType_test());
+       t.setStatut_test(test.getStatut_test());
+       t.setNote_test(test.getNote_test());
+       t.setCandidats(test.getCandidats());
+       t.setExercice(test.getExercice());
+       t.setResultat_test(test.getResultat_test());
+       t.setPoste(test.getPoste());
+        return testRepository.save(t);
+
     }
 
     @Override
